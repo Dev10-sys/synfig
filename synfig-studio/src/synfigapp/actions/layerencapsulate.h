@@ -69,6 +69,7 @@ public:
 
 	virtual void prepare();
 	virtual void perform();
+	virtual void undo();
 
 	ACTION_MODULE_EXT
 };

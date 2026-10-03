@@ -256,3 +256,13 @@ Action::LayerEncapsulate::perform()
 		get_canvas_interface()->get_selection_manager()->set_selected_layer(new_layer);
 	}
 }
+
+void
+Action::LayerEncapsulate::undo()
+{
+	Super::undo();
+	if(get_canvas_interface() && !layers.empty()){
+		get_canvas_interface()->get_selection_manager()->clear_selected_layers();
+		get_canvas_interface()->get_selection_manager()->set_selected_layers(layers);
+	}
+}
